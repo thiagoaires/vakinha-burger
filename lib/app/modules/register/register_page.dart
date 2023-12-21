@@ -97,9 +97,13 @@ class _RegisterPageState
                     child: VakinhaButton(
                       label: 'Cadastrar',
                       width: context.width,
-                      onPressed: () {
+                      onPressed: () async {
                         if (!formKey.currentState!.validate()) {
-                          controller.bacon();
+                          await controller.register(
+                            name: nameEC.text,
+                            email: emailEC.text,
+                            password: passwordEC.text,
+                          );
                         }
                       },
                     ),
